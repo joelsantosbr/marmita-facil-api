@@ -20,7 +20,11 @@ function isFood(menu: unknown): menu is MenuFood {
 }
 
 async function getAllMenuFoods(): Promise<MenuFood[]> {
-  const menuFoods: unknown = await prisma.menuFood.findMany()
+  const menuFoods: unknown = await prisma.menuFood.findMany({
+    include: {
+      foods: true
+    }
+  })
   if (!isArrayOfMenuFoods(menuFoods)) {
     throw new Error('Received malformed foods from server')
   }
