@@ -26,3 +26,4 @@ CREATE TABLE "foods" (
 
 -- AddForeignKey
 ALTER TABLE "foods" ADD CONSTRAINT "foods_menuId_fkey" FOREIGN KEY ("menuId") REFERENCES "menufoods"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
