@@ -1,6 +1,6 @@
 import { Food } from "./food"
 
-export type Menu = {
+export type MenuFood = {
   id: number
   name: string
   description: string
