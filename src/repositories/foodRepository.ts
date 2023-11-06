@@ -22,6 +22,8 @@ function isFood(food: unknown): food is Food {
 
 async function getAllFoods(): Promise<Food[]> {
   const foods: unknown = await prisma.food.findMany()
+  await prisma.$disconnect()
+  
   if (!isArrayOfFoods(foods)) {
     throw new Error('Received malformed foods from server')
   }

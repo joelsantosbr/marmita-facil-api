@@ -25,6 +25,8 @@ async function getAllMenuFoods(): Promise<MenuFood[]> {
       foods: true
     }
   })
+  await prisma.$disconnect()
+  
   if (!isArrayOfMenuFoods(menuFoods)) {
     throw new Error('Received malformed foods from server')
   }
